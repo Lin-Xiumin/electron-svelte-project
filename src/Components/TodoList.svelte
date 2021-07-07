@@ -5,20 +5,18 @@
 </script>
 
 <div class="todo-list">
-    {#if list.length === 0}
-        <p style="text-align: center;">{emptyListText}</p>
-    {:else}
-        <div class="list">
-            {#each list as aTask (aTask.key)}
-                <div class="task">
-                    <label>
-                        <input type="radio" on:click={handleClick(aTask.key)} />
-                        {aTask.text}
-                    </label>
-                </div>
-            {/each}
-        </div>
-    {/if}
+    <div class="list">
+        {#each list as aTask (aTask.key)}
+            <div class="task">
+                <label>
+                    <input type="radio" on:click={handleClick(aTask.key)} />
+                    {aTask.text}
+                </label>
+            </div>
+        {:else}
+            <p style="text-align: center;">{emptyListText}</p>
+        {/each}
+    </div>
 </div>
 
 <style>
